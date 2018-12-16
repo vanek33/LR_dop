@@ -58,10 +58,10 @@ int main()
 	printf("message type = 1, text = %s\n", mybuf.mtext);    
         mybuf.mtype = 2;
         for(int j=0; j < strlen(mybuf.mtext); j++) {
-            if (line[j] == 57)
-				line[j] = 48;
-			else if (isdigit(line[j])){
-				line[j]= line[j] + 1;
+            if (mybuf.mtext[j] == 57)
+				mybuf.mtext[j] = 48;
+			else if (isdigit(mybuf.mtext[j])){
+				mybuf.mtext[j]= mybuf.mtext[j] + 1;
         }
 
         if (msgsnd(msqid, (struct msgbuf *) &mybuf, len, 0) < 0) {
