@@ -55,6 +55,7 @@ int main()
         }
 
         /* Начало обработки и запись в очередь */
+	printf("message type = 1, text = %s\n", mybuf.mtext);    
         mybuf.mtype = 2;
         for(int j=0; j < strlen(mybuf.mtext); j++) {
             if (line[j] == 57)
@@ -76,7 +77,7 @@ int main()
 
         if (strncmp(mybuf.mtext, "end", MAX_MESSAGE_LEN) == 0) {
 
-            mybuf.mtype = 1; // присваеваем сообщению i-ый тип
+            mybuf.mtype = 2; // присваеваем сообщению i-ый тип
             strcpy(mybuf.mtext, "end");
             len = strlen(mybuf.mtext)+1;
 
@@ -87,9 +88,10 @@ int main()
 
             }
             exit(0);
+		
         }
 
-        printf("message type = 1, text = %s\n", mybuf.mtext);
+        
     }
 
     return 0; /* Исключительно для отсутствия warning'ов при компиляции. */
